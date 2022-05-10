@@ -10,7 +10,7 @@ using namespace std;
     *a = *b;
     *b = temp;
   }
-//QuickSort
+
 int partition(int a[], int f, int l)
 {
 
@@ -64,7 +64,7 @@ int toint(string s){
 	return ans;
 }
 
-//HeapSort
+
 void heapify(int arr[], int n, int i) {
     int largest = i;
     int left = 2 * i + 1;
