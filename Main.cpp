@@ -217,11 +217,58 @@ int main ()
         
         int arr[row.size()];
         copy(row.begin(),row.end(), arr);
-        heapSort(arr,row.size());
-        quickSort(arr,0,row.size()-1);
-
-        for (int  i = 0; i < row.size(); i++)
+while(1){
+	        int ch;
+        	printf("Enter 1 for quicksort\nEnter 2 for heapsort \nEnter 3 for radixsort \nEnter 4 for mergesort\n");
+        	scanf("%d",&ch);
+        	switch(ch){
+        		case 1:{
+        			quicksort(arr,0,row.size()-1);
+        			for (int  i = 0; i < row.size(); i++)
             cout << arr[i] << '\n';
+            break;
+        			
+                 }
+           
+					
+				
+				case 2:{
+					 heapSort(arr,row.size());
+					 for (int  i = 0; i < row.size(); i++)
+            cout << arr[i] << '\n';
+					break;
+				}
+				case 3:{
+					radixsort(arr, row.size());
+					for (int  i = 0; i < row.size(); i++)
+            cout << arr[i] << '\n';
+					break;
+				}
+				case 4:{
+					mergeSort(arr,0,row.size()-1);
+					for (int  i = 0; i < row.size(); i++)
+            cout << arr[i] << '\n';
+					break;
+				}
+				default:
+					exit(0);
+					
+					
+					
+					
+			}
+			 ofstream myfile("file.xls");
+                     int vsize = row.size();
+                    for(int n; n<vsize; n++){
+                 	myfile << arr[n] << '\n';
+                 
+        
+		}
+
+  
+
+   }
+}
+
     
 
-}
