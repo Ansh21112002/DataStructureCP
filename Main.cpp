@@ -260,9 +260,7 @@ while(1){
             break;
         			
                  }
-//            
-					
-				
+
 				case 2:{
 					 heapSort(arr,row.size());
 					 for (int  i = 0; i < row.size(); i++)
@@ -281,6 +279,7 @@ while(1){
             cout << arr[i] << '\n';
 					break;
 				}
+
 				case 5:{
 					int e;
 					printf("Enter the number you want to search\n");
@@ -311,7 +310,8 @@ while(1){
         
 		}
 
-  
-//   	cout << arr[n] << '\n';
    }
 }
+
+    
+
