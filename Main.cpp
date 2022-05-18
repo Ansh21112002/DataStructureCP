@@ -194,10 +194,41 @@ void heapify(int arr[], int n, int i) {
       heapify(arr, i, 0);
     }
   }
+  int linearSearch(int arr[], int x)
+{
+    int i, n= sizeof(arr)/sizeof(arr[0]);
+    for (i = 0; i < n; i++)
+        if (arr[i] == x)
+            return i;
+    return -1;
+}
+int binarySearch(int a[], int beg, int end, int val)    
+{    
+    int mid;    
+    if(end >= beg)     
+    {        mid = (beg + end)/2;    
+/* if the item to be searched is present at middle */  
+        if(a[mid] == val)    
+        {                 
+            return mid+1;    
+        }    
+            /* if the item to be searched is smaller than middle, then it can only be in left subarray */  
+        else if(a[mid] < val)     
+        {  
+            return binarySearch(a, mid+1, end, val);    
+        }    
+            /* if the item to be searched is greater than middle, then it can only be in right subarray */  
+        else     
+        {  
+            return binarySearch(a, beg, mid-1, val);    
+        }          
+    }    
+    return -1;     
+}
 int main ()
 {
     //set to the csv file location and reading input from csv file
-    ifstream csv_file("E:\\Study Material\\SY-Sem2\\Data Structures\\DS_CP\\random.csv");
+    ifstream csv_file("random.csv");
 
     if(!csv_file.is_open())
         std::cout << "File Not Open" << '\n';
@@ -219,7 +250,10 @@ int main ()
         copy(row.begin(),row.end(), arr);
 while(1){
 	        int ch;
-        	printf("Enter 1 for quicksort\nEnter 2 for heapsort \nEnter 3 for radixsort \nEnter 4 for mergesort\n");
+
+        	printf("Enter 1 for quick sort\nEnter 2 for heap sort \n3 for radix \n4 for merge\nEnter 5 for linearSearch\nEnter 6 for binarysearch\n");
+
+        
         	scanf("%d",&ch);
         	switch(ch){
         		case 1:{
@@ -229,7 +263,7 @@ while(1){
             break;
         			
                  }
-           
+
 					
 				
 				case 2:{
@@ -250,6 +284,32 @@ while(1){
             cout << arr[i] << '\n';
 					break;
 				}
+
+				case 5:{
+					int e;
+					printf("Enter the number you want to search\n");
+					scanf("%d",&e);
+					int i, n=row.size();
+                    for (i = 0; i < n; i++){
+                    	if (arr[i] == e){
+                    	cout<<"The no is present at index "<<i<<'\n';
+                    	break;	
+						}
+//                    	cout << i << '\n';
+                    	
+					}
+					if(i==n)printf("not found");
+					break;
+				}
+				case 6:{
+					quicksort(arr,0,row.size()-1);
+					int e;
+					printf("Enter the number you want to search\n");
+					scanf("%d",&e);
+					printf("The number is at index %d\n",binarySearch(arr,0,row.size()-1,e)); 
+					break;
+				}
+
 				default:
 					exit(0);
 					
@@ -264,8 +324,6 @@ while(1){
                  
         
 		}
-
-  
 
    }
 }
