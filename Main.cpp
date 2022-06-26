@@ -227,6 +227,12 @@ int binarySearch(int a[], int beg, int end, int val)
 }
 int main ()
 {
+	
+	printf("\t\t\t\t_________________________________________________________\n");
+	printf("\t\t\t\t\t\tWELCOME TO EXCEL DATA MANAGER\n");
+    printf("\t\t\t\t_________________________________________________________\n");
+
+
     //set to the csv file location and reading input from csv file
     ifstream csv_file("random.csv");
 
@@ -248,13 +254,24 @@ int main ()
         
         int arr[row.size()];
         copy(row.begin(),row.end(), arr);
-while(1){
-	        int ch;
-
-        	printf("Enter 1 for quick sort\nEnter 2 for heap sort \n3 for radix \n4 for merge\nEnter 5 for linearSearch\nEnter 6 for binarysearch\n");
-
-
         
+        int ch;
+do{
+	
+	        
+			printf("\t\t\t\t_________________________________________________________\n");
+			printf("\t\t\t\t\t\tEnter 1 for Quick Sort\n");
+			printf("\t\t\t\t\t\tEnter 2 for Heap Sort\n");
+			printf("\t\t\t\t\t\tEnter 3 for Radix Sort\n");
+			printf("\t\t\t\t\t\tEnter 4 for Merge Sort\n");
+			printf("\t\t\t\t\t\tEnter 5 for Linear Search\n");
+			printf("\t\t\t\t\t\tEnter 6 for Binary Search\n");
+			printf("\t\t\t\t\t\tEnter 7 to Exit\n");
+			printf("\t\t\t\t_________________________________________________________\n\t\t\t\t\t\t\t   ");
+			printf("\n\t\t\t\t\t\tEnter your choice here: ");
+	
+//        	printf("\nEnter 1 for Quick Sort\nEnter 2 for Heap Sort \nEnter 3 for Radix Sort \nEnter 4 for Merge Sort\nEnter 5 for Linear Search\nEnter 6 for Binary Search\nEnter 7 to Exit\n");
+
         	scanf("%d",&ch);
         	switch(ch){
         		case 1:{
@@ -288,12 +305,12 @@ while(1){
 
 				case 5:{
 					int e;
-					printf("Enter the number you want to search\n");
+					printf("Enter the number you want to search:  ");
 					scanf("%d",&e);
 					int i, n=row.size();
                     for (i = 0; i < n; i++){
                     	if (arr[i] == e){
-                    	cout<<"The no is present at index "<<i<<'\n';
+                    	cout<<"The no is present at index: "<<i<<'\n';
                     	break;	
 						}
                     	cout << i << '\n';
@@ -305,14 +322,14 @@ while(1){
 				case 6:{
 					quicksort(arr,0,row.size()-1);
 					int e;
-					printf("Enter the number you want to search\n");
+					printf("Enter the number you want to search:  ");
 					scanf("%d",&e);
-					printf("The number is at index %d\n",binarySearch(arr,0,row.size()-1,e)); 
+					printf("The number is at index: %d\n",binarySearch(arr,0,row.size()-1,e)); 
 					break;
 				}
 
 				default:
-					exit(0);
+					printf("\nThankyou for using our application :)");
 			}
 		
 
@@ -322,86 +339,5 @@ while(1){
         for(int n=0; n<vsize; n++){
             myfile << arr[n] << '\n';
         }
-    }
+    }while(ch!=7);
 }
-
-    
-
-
-        
-        	scanf("%d",&ch);
-        	switch(ch){
-        		case 1:{
-        			quicksort(arr,0,row.size()-1);
-        			for (int  i = 0; i < row.size(); i++)
-            cout << arr[i] << '\n';
-            break;
-        			
-                 }
-
-					
-				
-				case 2:{
-					 heapSort(arr,row.size());
-					 for (int  i = 0; i < row.size(); i++)
-            cout << arr[i] << '\n';
-					break;
-				}
-				case 3:{
-					radixsort(arr, row.size());
-					for (int  i = 0; i < row.size(); i++)
-            cout << arr[i] << '\n';
-					break;
-				}
-				case 4:{
-					mergeSort(arr,0,row.size()-1);
-					for (int  i = 0; i < row.size(); i++)
-            cout << arr[i] << '\n';
-					break;
-				}
-
-				case 5:{
-					int e;
-					printf("Enter the number you want to search\n");
-					scanf("%d",&e);
-					int i, n=row.size();
-                    for (i = 0; i < n; i++){
-                    	if (arr[i] == e){
-                    	cout<<"The no is present at index "<<i<<'\n';
-                    	break;	
-						}
-//                    	cout << i << '\n';
-                    	
-					}
-					if(i==n)printf("not found");
-					break;
-				}
-				case 6:{
-					quicksort(arr,0,row.size()-1);
-					int e;
-					printf("Enter the number you want to search\n");
-					scanf("%d",&e);
-					printf("The number is at index %d\n",binarySearch(arr,0,row.size()-1,e)); 
-					break;
-				}
-
-				default:
-					exit(0);
-					
-					
-					
-					
-			}
-			 ofstream myfile("file.xls");
-                     int vsize = row.size();
-                    for(int n; n<vsize; n++){
-                 	myfile << arr[n] << '\n';
-                 
-        
-		}
-
-   }
-}
-
-    
-
