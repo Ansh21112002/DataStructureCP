@@ -233,7 +233,7 @@ int main ()
     if(!csv_file.is_open())
         std::cout << "File Not Open" << '\n';
 
-    // Empty vector holding all data from csv file
+
     vector<int> row;
     string row_data;
     int x=0;
@@ -252,6 +252,81 @@ while(1){
 	        int ch;
 
         	printf("Enter 1 for quick sort\nEnter 2 for heap sort \n3 for radix \n4 for merge\nEnter 5 for linearSearch\nEnter 6 for binarysearch\n");
+
+
+        
+        	scanf("%d",&ch);
+        	switch(ch){
+        		case 1:{
+        			quicksort(arr,0,row.size()-1);
+        			for (int  i = 0; i < row.size(); i++)
+            cout << arr[i] << '\n';
+            break;
+        			
+                 }
+
+					
+				
+				case 2:{
+					 heapSort(arr,row.size());
+					 for (int  i = 0; i < row.size(); i++)
+            cout << arr[i] << '\n';
+					break;
+				}
+				case 3:{
+					radixsort(arr, row.size());
+					for (int  i = 0; i < row.size(); i++)
+            cout << arr[i] << '\n';
+					break;
+				}
+				case 4:{
+					mergeSort(arr,0,row.size()-1);
+					for (int  i = 0; i < row.size(); i++)
+            cout << arr[i] << '\n';
+					break;
+				}
+
+				case 5:{
+					int e;
+					printf("Enter the number you want to search\n");
+					scanf("%d",&e);
+					int i, n=row.size();
+                    for (i = 0; i < n; i++){
+                    	if (arr[i] == e){
+                    	cout<<"The no is present at index "<<i<<'\n';
+                    	break;	
+						}
+                    	cout << i << '\n';
+                    	
+					}
+					if(i==n)printf("not found");
+					break;
+				}
+				case 6:{
+					quicksort(arr,0,row.size()-1);
+					int e;
+					printf("Enter the number you want to search\n");
+					scanf("%d",&e);
+					printf("The number is at index %d\n",binarySearch(arr,0,row.size()-1,e)); 
+					break;
+				}
+
+				default:
+					exit(0);
+			}
+		
+
+
+		ofstream myfile("file.xls");
+        int vsize = row.size();
+        for(int n=0; n<vsize; n++){
+            myfile << arr[n] << '\n';
+        }
+    }
+}
+
+    
+
 
         
         	scanf("%d",&ch);
